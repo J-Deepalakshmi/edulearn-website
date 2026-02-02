@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang hookup="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn | Online Learning Platform</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f6fb;
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: #1e40af;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #fbbf24;
+        }
+
+        /* HERO */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(to right, #1e40af, #2563eb);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+        }
+
+        .hero p {
+            margin: 20px 0;
+            max-width: 600px;
+            font-size: 18px;
+        }
+
+        .hero button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background: #fbbf24;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hero button:hover {
+            background: #f59e0b;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #1e40af;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* CONTACT */
+        form {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            background: #1e40af;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e40af;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>EduLearn</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h2>Learn Smarter. Achieve Faster.</h2>
+    <p>Join thousands of students learning new skills online with expert guidance.</p>
+    <button onclick="startLearning()">Start Learning Now</button>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>EduLearn is an online learning platform offering high-quality education with expert mentors.</p>
+</section>
+
+<section id="courses">
+    <h2>Our Courses</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>HTML, CSS, JavaScript & Projects</p>
+        </div>
+        <div class="card">
+            <h3>Data Science</h3>
+            <p>Python, Pandas, Machine Learning</p>
+        </div>
+        <div class="card">
+            <h3>AI & ML</h3>
+            <p>Artificial Intelligence fundamentals</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>Email: contact@edulearn.com</p>
+    <p>© 2026 EduLearn. All rights reserved.</p>
+</footer>
+
+<script>
+    function startLearning() {
+        alert("Welcome to EduLearn! Enrollment opening soon 🚀");
+    }
+
+    function validateForm() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+
+        if (name === "" || email === "" || message === "") {
+            alert("Please fill all fields");
+            return false;
+        }
+
+        alert("Thank you! Your message has been sent.");
+        return true;
+    }
+</script>
+
+</body>
+</html>
